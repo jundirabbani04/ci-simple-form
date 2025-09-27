@@ -1,3 +1,14 @@
+# Table of Contents
+- [Aplikasi Pendaftaran Biodata (Biodata Submission App)](#aplikasi-pendaftaran-biodata-biodata-submission-app)
+- [Features ✨](#features-✨)
+- [Requirements 🛠️](#requirements-🛠️)
+- [How to Install and Run 🚀](#how-to-install-and-run-🚀)
+  - [1. Get the Code](#1-get-the-code)
+  - [2. Install Dependencies](#2-install-dependencies)
+  - [3. Configure the Environment](#3-configure-the-environment)
+  - [4. Run the Database Migration](#4-run-the-database-migration)
+  - [5. Start the Server](#5-start-the-server)
+
 # Aplikasi Pendaftaran Biodata (Biodata Submission App)
 A simple web application built with CodeIgniter 4 for submitting personal biodata. The data is saved to a MySQL database and can be viewed in a protected admin area.
 
