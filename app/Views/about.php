@@ -11,11 +11,11 @@
 <div class="card">
   <div class="card-header">Student Information</div>
   <div class="card-body">
-    <p><strong>Name:</strong> [Your Name Here]</p>
-    <p><strong>Student ID:</strong> [Your Student ID Here]</p>
-    <p><strong>Course:</strong> [Your Course Name Here]</p>
+    <p><strong>Name:</strong> Muhammad Jundi Rabbani</p>
+    <p><strong>Student ID:</strong> A002010027</p>
+    <p><strong>Course:</strong> Mr. Sofwan Romli's Course</p>
     <p><strong>Assignment:</strong> This project demonstrates a simple CodeIgniter 4 web application with form handling,
-      database interaction (instead of local storage), and a session-based authentication system.</p>
+      database interaction, and a session-based authentication system.</p>
   </div>
 </div>
 <?= $this->endSection() ?>
