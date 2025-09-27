@@ -54,7 +54,6 @@ cp .env.example .env
 - Create a new, empty database using a tool like phpMyAdmin (e.g., name it biodata_app).
 - Finally, open the .env file and update the following sections:
 - Set your application environment to 'development': `CI_ENVIRONMENT = development`
-- Set your base URL (important!): `app.baseURL = 'http://localhost:8080'`
 - Update with your local database credentials
 ```
 database.default.hostname = localhost
