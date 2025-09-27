@@ -46,10 +46,10 @@ You need to set up your environment file, which contains the database credential
 First, create a .env file by copying the example file.
 
 ### On Windows
-copy .env.example .env
+`copy .env.example .env`
 
 ### On Mac/Linux
-cp .env.example .env
+`cp .env.example .env`
 
 ### Next step
 - Create a new, empty database using a tool like phpMyAdmin (e.g., name it biodata_app).
