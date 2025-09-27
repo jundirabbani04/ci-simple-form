@@ -1,7 +1,8 @@
 # Aplikasi Pendaftaran Biodata (Biodata Submission App)
 A simple web application built with CodeIgniter 4 for submitting personal biodata. The data is saved to a MySQL database and can be viewed in a protected admin area.
 
-Features ✨
+# Features ✨
+
 📝 Comprehensive Biodata Form: Multi-section form for personal data, address, contact info, and work details.
 
 🔒 Server-Side Validation: Ensures data integrity before saving to the database.
