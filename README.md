@@ -14,20 +14,16 @@ Features ✨
 
 📱 Responsive Design: A clean layout with a collapsible sidebar that works on desktop and mobile devices.
 
-Requirements 🛠️
+# Requirements 🛠️
 Before you begin, ensure you have the following installed on your machine:
 
-PHP 8.1 or newer
+- PHP 8.1 or newer
+- Composer 2.x
+- A local server environment (e.g., XAMPP, Laragon, MAMP)
+- MySQL or MariaDB
+- The php-mysqli extension enabled in your php.ini file.
 
-Composer 2.x
-
-A local server environment (e.g., XAMPP, Laragon, MAMP)
-
-MySQL or MariaDB
-
-The php-mysqli extension enabled in your php.ini file.
-
-How to Install and Run 🚀
+# How to Install and Run 🚀
 Follow these steps to get the application running on your local machine.
 
 ## 1. Get the Code
