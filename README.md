@@ -1,68 +1,94 @@
-# CodeIgniter 4 Application Starter
+# Aplikasi Pendaftaran Biodata (Biodata Submission App)
+A simple web application built with CodeIgniter 4 for submitting personal biodata. The data is saved to a MySQL database and can be viewed in a protected admin area.
 
-## What is CodeIgniter?
+Features ✨
+📝 Comprehensive Biodata Form: Multi-section form for personal data, address, contact info, and work details.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+🔒 Server-Side Validation: Ensures data integrity before saving to the database.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+🖼️ Photo Upload: Allows users to upload a profile photo (optional).
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+💾 MySQL Database Storage: All submissions are stored in a database.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+🔐 Protected Submissions Page: A simple, session-based login protects the page where all submissions can be viewed.
 
-## Installation & updates
+📱 Responsive Design: A clean layout with a collapsible sidebar that works on desktop and mobile devices.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Requirements 🛠️
+Before you begin, ensure you have the following installed on your machine:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+PHP 8.1 or newer
 
-## Setup
+Composer 2.x
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+A local server environment (e.g., XAMPP, Laragon, MAMP)
 
-## Important Change with index.php
+MySQL or MariaDB
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+The php-mysqli extension enabled in your php.ini file.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+How to Install and Run 🚀
+Follow these steps to get the application running on your local machine.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## 1. Get the Code
+Clone the repository or copy the project folder to your local machine.
 
-## Repository Management
+### If using Git
+`git clone https://github.com/jundirabbani04/ci-simple-form.git`
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## Navigate into the new directory
+`cd ci-simple-form`
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## 2. Install Dependencies
+Run Composer to install the CodeIgniter framework and other dependencies.
+```composer install```
 
-## Server Requirements
+## 3. Configure the Environment
+You need to set up your environment file, which contains the database credentials and other settings.
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+First, create a .env file by copying the example file.
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+### On Windows
+copy .env.example .env
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+### On Mac/Linux
+cp .env.example .env
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Next step
+- Create a new, empty database using a tool like phpMyAdmin (e.g., name it biodata_app).
+- Finally, open the .env file and update the following sections:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+# Set your application environment to 'development'
+`CI_ENVIRONMENT = development`
+
+# Set your base URL (important!)
+`app.baseURL = 'http://localhost:8080'`
+
+# Update with your local database credentials
+```
+database.default.hostname = localhost
+database.default.database = biodata_app
+database.default.username = root
+database.default.password = 
+database.default.DBDriver = MySQLi
+```
+## 4. Run the Database Migration
+This command will automatically create the necessary biodata table in the database you just configured.
+
+`php spark migrate`
+
+## 5. Start the Server
+You're all set! Start the CodeIgniter development server.
+
+`php spark serve`
+
+The application will now be running at `http://localhost:8080`.
+
+Admin Credentials 🔑
+To view the submitted data, navigate to the submissions page and log in with the following hardcoded credentials.
+
+URL: `http://localhost:8080/submissions`
+
+Username: `admin`
+
+Password: `password`
