@@ -5,18 +5,17 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-// Main form page
-$routes->get('/', 'App::index');
 
-// About page
+// --- FORM SUBMISSION ---
+// The main page shows the form.
+$routes->get('/', 'Form::index'); 
+// This handles the form POST request.
+$routes->post('form/submit', 'Form::submit');
+
+// --- GENERAL PAGES ---
 $routes->get('about', 'App::about');
 
-// Submissions page (viewing)
-$routes->get('submissions', 'App::submissions');
-
-// Form submission handler
-$routes->post('submit-form', 'App::submitForm');
-
-// Authentication routes
-$routes->post('login', 'App::handleLogin');
-$routes->get('logout', 'App::logout');
+// --- SUBMISSIONS & ADMIN AREA ---
+$routes->get('submissions', 'Submissions::index');
+$routes->post('login', 'Submissions::handleLogin');
+$routes->get('logout', 'Submissions::logout');

@@ -7,10 +7,28 @@
   <button class="sidebar-toggle-btn"><i class="bi bi-list"></i></button>
   <h1 class="mb-0 ms-2">Biodata Form</h1>
 </div>
+
+<?php if (session()->getFlashdata('success')): ?>
+  <div class="alert alert-success" role="alert">
+    <?= session()->getFlashdata('success') ?>
+  </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('errors')): ?>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Terdapat Kesalahan</h4>
+    <ul class="mb-0">
+      <?php foreach (session()->getFlashdata('errors') as $error): ?>
+        <li><?= esc($error) ?></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+<?php endif; ?>
+
 <hr>
 <div class="card">
   <div class="card-body">
-    <form id="data-form" action="<?= base_url('submit-form') ?>" method="POST" enctype="multipart/form-data">
+    <form id="data-form" action="<?= base_url('form/submit') ?>" method="POST" enctype="multipart/form-data">
 
       <h5 class="form-section-title">Data Pribadi</h5>
       <div class="row">
@@ -180,64 +198,4 @@
     </form>
   </div>
 </div>
-<?= $this->endSection() ?>
-
-
-<?= $this->section('scripts') ?>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const elProvinsi = document.getElementById('provinsi');
-    const elKabupaten = document.getElementById('kab');
-    const elKecamatan = document.getElementById('kec');
-
-    // Function to populate a select dropdown
-    function populateSelect(element, data, defaultOptionText) {
-      element.innerHTML = `<option value="" selected disabled>${defaultOptionText}</option>`;
-      data.forEach(item => {
-        element.innerHTML += `<option value="${item.id}">${item.nama}</option>`;
-      });
-      element.disabled = false;
-    }
-
-    // 1. Load Provinsi on page load
-    // This assumes you have an API endpoint that returns all provinces
-    fetch('<?= base_url('api/wilayah/provinsi') ?>')
-      .then(response => response.json())
-      .then(data => {
-        populateSelect(elProvinsi, data, 'Pilih Provinsi');
-      });
-
-    // 2. Load Kabupaten when Provinsi changes
-    elProvinsi.addEventListener('change', function () {
-      const provId = this.value;
-      elKabupaten.innerHTML = '<option value="">Loading...</option>';
-      elKabupaten.disabled = true;
-      elKecamatan.innerHTML = '<option value="" selected disabled>Pilih Kecamatan</option>';
-      elKecamatan.disabled = true;
-
-      if (provId) {
-        fetch(`<?= base_url('api/wilayah/kabupaten/') ?>${provId}`)
-          .then(response => response.json())
-          .then(data => {
-            populateSelect(elKabupaten, data, 'Pilih Kabupaten/Kota');
-          });
-      }
-    });
-
-    // 3. Load Kecamatan when Kabupaten changes
-    elKabupaten.addEventListener('change', function () {
-      const kabId = this.value;
-      elKecamatan.innerHTML = '<option value="">Loading...</option>';
-      elKecamatan.disabled = true;
-
-      if (kabId) {
-        fetch(`<?= base_url('api/wilayah/kecamatan/') ?>${kabId}`)
-          .then(response => response.json())
-          .then(data => {
-            populateSelect(elKecamatan, data, 'Pilih Kecamatan');
-          });
-      }
-    });
-  });
-</script>
 <?= $this->endSection() ?>

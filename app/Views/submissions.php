@@ -28,11 +28,6 @@
           <?php endif; ?>
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
-        <p class="mt-4">Dummy admin account:</p>
-        <ul>
-          <li>Username: <strong>admin</strong></li>
-          <li>Password: <strong>password</strong></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -53,25 +48,29 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Full Name</th>
+              <th>Nama</th>
+              <th>NIK</th>
               <th>Email</th>
-              <th>Message</th>
-              <th>Timestamp</th>
+              <th>No. HP</th>
+              <th>Pekerjaan</th>
+              <th>Submitted At</th>
             </tr>
           </thead>
           <tbody>
             <?php if (empty($submissions)): ?>
               <tr>
-                <td colspan="5" class="text-center">No submissions yet.</td>
+                <td colspan="7" class="text-center">No submissions yet.</td>
               </tr>
             <?php else: ?>
               <?php foreach ($submissions as $index => $sub): ?>
                 <tr>
                   <td><?= $index + 1 ?></td>
-                  <td><?= esc($sub['name']) ?></td>
-                  <td><?= esc($sub['email']) ?></td>
-                  <td><?= esc($sub['message']) ?></td>
-                  <td><?= esc($sub['timestamp']) ?></td>
+                  <td><?= esc($sub['nama']) ?></td>
+                  <td><?= esc($sub['nik']) ?></td>
+                  <td><?= esc($sub['mail']) ?></td>
+                  <td><?= esc($sub['hp1']) ?></td>
+                  <td><?= esc($sub['kerja']) === '1' ? 'ASN - PNS' : 'Non ASN - Swasta' ?></td>
+                  <td><?= esc($sub['created_at']) ?></td>
                 </tr>
               <?php endforeach; ?>
             <?php endif; ?>
